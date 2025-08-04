@@ -1,9 +1,3 @@
-import pandas as pd
-import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
-
 class emlinefit(object):
     """
     This package will fit a gaussian to an emission line.
