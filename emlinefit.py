@@ -7,5 +7,7 @@ class emlinefit(object):
         emlinefit requires a wavelength array ('wavelength') and flux array ('flux')
         containing the emission line to be fit
         """
-        
+    def gaussian(x, amp, mu, sigma):
+        exponential = -1 * (x - mu)**2 / (2 * sigma**2)
+        return amp * np.exp(exponential)
         
