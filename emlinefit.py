@@ -29,7 +29,7 @@ class emlinefit(object):
     def cal_fwhm(asym,d):
         return 2*np.sqrt(2*np.log(2))*d/(1-2*np.log(2)*asym**2)
 
-    def fitting(self):
+    def gaussfitting(self):
         ind = (self.wavelength>self.line_l) & (self.wavelength<self.line_u)
         popt,pcov=curve_fit(gaussian, self.wavelength[ind], self.flux[ind],
                     bounds=([0,self.line_l,0],[np.max(self.flux[ind]),self.line_u,self.line_u-self.line_l]))
