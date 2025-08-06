@@ -130,7 +130,7 @@ class emlinefit(object):
             Fitted asymmetric gaussian parameters of amplitude, asymmetric paramter, width, fit covariance
             ValueError if input 'fit_type' is not 'gaussian' or 'asymmetric'
         """
-        
+
         if self.fit_type == 'gaussian':
             popt, pcov = self.gaussfitting()
             return {'amplitude': popt[0], 'mean': popt[1], 'stddev': popt[2], 'covariance': pcov}
@@ -162,9 +162,9 @@ class emlinefit(object):
         plt.legend()
         plt.show()
         
-wavelength=np.genfromtxt('data/wavelength_sample.txt')
-flux=np.genfromtxt('data/flux_sample.txt')
-emline=emlinefit(wavelength, flux, 1620, 1640, fit_type='asymmetric')
-result=emline.return_result()
-print(result)
-emline.plot_fit()
+#wavelength=np.genfromtxt('data/wavelength_sample.txt')
+#flux=np.genfromtxt('data/flux_sample.txt')
+#emline=emlinefit(wavelength, flux, 1620, 1640, fit_type='asymmetric')
+#result=emline.return_result()
+#print(result)
+#emline.plot_fit()
