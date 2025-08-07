@@ -133,12 +133,12 @@ class emlinefit(object):
 
         if self.fit_type == 'gaussian':
             popt, pcov = self.gaussfitting()
-            return {'amplitude': popt[0], 'mean': popt[1], 'stddev': popt[2], 'covariance': pcov}
+            return popt[0], popt[1], popt[2], pcov
         elif self.fit_type == 'asymmetric':
             popt, pcov = self.asymfitting()
             self.A, self.asym, self.d = popt
             width = self.cal_fwhm()
-            return {'amplitude': self.A, 'asymmetry': self.asym, 'd': self.d, 'width': width, 'covariance': pcov}
+            return self.A, self.asym, self.d, width, pcov
         else:
             raise ValueError("fit_type must be either 'gaussian' or 'asymmetric'")
         
