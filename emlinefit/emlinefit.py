@@ -162,9 +162,3 @@ class emlinefit(object):
         plt.legend()
         plt.show()
         
-#wavelength=np.genfromtxt('data/wavelength_sample.txt')
-#flux=np.genfromtxt('data/flux_sample.txt')
-#emline=emlinefit(wavelength, flux, 1620, 1640, fit_type='asymmetric')
-#result=emline.return_result()
-#print(result)
-#emline.plot_fit()
