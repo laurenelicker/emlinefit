@@ -1,11 +1,12 @@
+import numpy as np
+from emlinefit.emlinefit import emlinefit
+import pytest
+
 def test_unit_Gaussian():
+
     """
     Unit test for a purely Gaussian dataset
     """
-
-    import pytest
-    from emlinefit.emlinefit import emlinefit
-    import numpy as np
 
     x = np.linspace(0, 100, 100)
     mu = 50
@@ -22,4 +23,5 @@ def test_unit_Gaussian():
     assert a == pytest.approx(amp, abs=0.05*amp)
     assert b == pytest.approx(mu, abs=0.05*amp)
     assert c == pytest.approx(sigma, abs=0.05*amp)
-    
+
+test_unit_Gaussian()
