@@ -92,7 +92,7 @@ class emlinefit(object):
         """
         ind = (self.wavelength>self.line_l) & (self.wavelength<self.line_u)
         popt,pcov=curve_fit(self.gaussian, self.wavelength[ind], self.flux[ind],
-                    bounds=([0,self.line_l,0],[np.max(self.flux[ind]),self.line_u,self.line_u-self.line_l]))
+                    bounds=([0,self.line_l,0],[np.max(self.flux[ind]),self.line_u,((self.line_u-self.line_l)/2)]))
         return popt,pcov
     
     def asymfitting(self):
@@ -149,16 +149,18 @@ class emlinefit(object):
 
         ind = (self.wavelength>self.line_l) & (self.wavelength<self.line_u)
         plt.figure(figsize=(8,5))
-        plt.plot(self.wavelength[ind], self.flux[ind], label='Data', color='black')
+        plt.plot(self.wavelength, self.flux, label='Data', color='black')
         if self.fit_type == 'gaussian':
             popt, _ = self.gaussfitting()
-            plt.plot(self.wavelength[ind], self.gaussian(self.wavelength[ind], *popt), label='Gaussian Fit', color='red')
+            plt.plot(self.wavelength, self.gaussian(self.wavelength, *popt), label='Gaussian Fit', color='red')
         elif self.fit_type == 'asymmetric':
             popt, _ = self.asymfitting()
-            plt.plot(self.wavelength[ind], self.asym_gaussian(self.wavelength[ind], *popt), label='Asymmetric Gaussian Fit', color='blue')
+            plt.plot(self.wavelength, self.asym_gaussian(self.wavelength, *popt), label='Asymmetric Gaussian Fit', color='blue')
         plt.xlabel('Wavelength')
         plt.ylabel('Flux')
         plt.title('Emission Line Fit')
         plt.legend()
         plt.show()
-        
+
+
+
