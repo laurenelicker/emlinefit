@@ -155,12 +155,9 @@ class emlinefit(object):
             plt.plot(self.wavelength, self.gaussian(self.wavelength, *popt), label='Gaussian Fit', color='red')
         elif self.fit_type == 'asymmetric':
             popt, _ = self.asymfitting()
-            plt.plot(self.wavelength, self.asym_gaussian(self.wavelength, *popt), label='Asymmetric Gaussian Fit', color='blue')
+            plt.plot(self.wavelength[ind], self.asym_gaussian(self.wavelength[ind], *popt), label='Asymmetric Gaussian Fit', color='blue')
         plt.xlabel('Wavelength')
         plt.ylabel('Flux')
         plt.title('Emission Line Fit')
         plt.legend()
         plt.show()
-
-
-
