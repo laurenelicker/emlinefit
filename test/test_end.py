@@ -7,7 +7,7 @@ parent_directory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 
 def test_plot():
   """
-  Test the fitting of an asymmetric line.
+  Test plotting functionality.
   """
 
   wavelength=np.genfromtxt(parent_directory + '/emlinefit/data/wavelength_sample.txt')

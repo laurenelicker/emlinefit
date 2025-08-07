@@ -1,14 +1,17 @@
 import numpy as np
 import pytest
 from emlinefit.emlinefit import emlinefit
+import os
+
+parent_directory = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 
 def test_fit_asym_line():
   """
   Test the fitting of an asymmetric line.
   """
-  wavelength=np.genfromtxt('/Users/seonwoo/work/emlinefit/emlinefit/data/wavelength_sample.txt')
-  flux=np.genfromtxt('/Users/seonwoo/work/emlinefit/emlinefit/data/flux_sample.txt')
-  
+  wavelength=np.genfromtxt(os.path.join(parent_directory, 'data/wavelength_sample.txt'))
+  flux=np.genfromtxt(os.path.join(parent_directory, 'data/flux_sample.txt'))
+
   emline=emlinefit(wavelength, flux, 1620, 1640, fit_type='asymmetric')
   A, asym, d, width, cov = emline.return_result()
 
